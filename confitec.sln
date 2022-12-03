@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "confitec_ssss", "confitec_ssss\confitec_ssss.csproj", "{234B3468-5789-4BF6-87E3-767D7C1EF84C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "confitec_ssss\Api.csproj", "{234B3468-5789-4BF6-87E3-767D7C1EF84C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{A71F9094-8FAF-47A3-B790-8DBB24DBD6D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{A71F9094-8FAF-47A3-B790-8DBB24DBD6D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{D3B173DC-5DED-4108-B316-013630225057}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{D3B173DC-5DED-4108-B316-013630225057}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{BBB1E73D-2BCD-408F-8C85-CE802A207CAE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{BBB1E73D-2BCD-408F-8C85-CE802A207CAE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
