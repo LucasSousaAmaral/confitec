@@ -12,12 +12,13 @@ public record UserDto
     public string Email { get; init; }
     public DateTime BirthDate { get; init; }
     public Scholarity Scholarity { get; init; }
+    public string ScholarityName { get; init; }
 
     #endregion Properties
 
     #region Constructors
 
-    public UserDto(int userId, string userName, string surName, string email, DateTime birthDate, Scholarity scholarity)
+    public UserDto(int userId, string userName, string surName, string email, DateTime birthDate, Scholarity scholarity, string scholarityName)
     {
         UserId = userId;
         UserName = userName;
@@ -25,6 +26,7 @@ public record UserDto
         Email = email;
         BirthDate = birthDate;
         Scholarity = scholarity;
+        ScholarityName = scholarityName;
     }
 
     #endregion Constructors

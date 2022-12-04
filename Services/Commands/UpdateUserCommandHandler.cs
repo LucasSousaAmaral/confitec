@@ -1,4 +1,4 @@
-﻿using Domain.Agreggates;
+﻿using Domain.Common;
 using Domain.IRepository;
 using MediatR;
 using Services.Queries.ViewModels;
@@ -32,7 +32,7 @@ public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, UserD
 
         var result = validator.Validate(request);
 
-        if (!result.IsValid) 
+        if (!result.IsValid)
         {
             throw new FluentValidation.ValidationException(result.Errors);
         }
@@ -45,7 +45,7 @@ public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, UserD
 
         await _userRepository.UnitOfWork.SaveEntitiesAsync();
 
-        var userDto = new UserDto(user.UserId, user.UserName, user.SurName, user.Email, user.BirthDate, user.Scholarity);
+        var userDto = new UserDto(user.UserId, user.UserName, user.SurName, user.Email, user.BirthDate, user.Scholarity, Enum.GetName(typeof(Scholarity), user.Scholarity));
 
         return userDto;
     }

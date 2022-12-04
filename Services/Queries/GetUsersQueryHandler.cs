@@ -30,13 +30,15 @@ public class GetUsersQueryHandler : IRequestHandler<GetUsersQuery, IEnumerable<U
 
     public async Task<IEnumerable<UserDto>> Handle(GetUsersQuery request, CancellationToken cancellationToken)
     {
-            var sql = @"SELECT [UserId]
-                                ,[UserName]
-                                ,[SurName]
-                                ,[Email]
-                                ,[BirthDate]
-                                ,[Scholarity]
-                        FROM [Users]";
+        var sql = @"SELECT us.[UserId]
+                               ,us.[UserName]
+                               ,us.[SurName]
+                               ,us.[Email]
+                               ,us.[BirthDate]
+                               ,us.[Scholarity]
+	                           ,sc.[ScholarityName] as ScholarityName
+                        FROM [Users] as us
+                        INNER JOIN Scholarity as sc on us.Scholarity = sc.ScholarityId";
 
         var parameters = new DynamicParameters();
 

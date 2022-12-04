@@ -1,7 +1,5 @@
-﻿using Domain.Agreggates;
-using Domain.IRepository;
+﻿using Domain.IRepository;
 using MediatR;
-using Services.Queries.ViewModels;
 using Services.Validations.UserValidations;
 
 namespace Services.Commands;
@@ -31,7 +29,7 @@ public class DeleteUserCommandHandler : IRequestHandler<DeleteUserCommand, bool>
         DeleteUserCommandValidator validator = new DeleteUserCommandValidator();
         var result = validator.Validate(request);
 
-        if (!result.IsValid) 
+        if (!result.IsValid)
         {
             throw new FluentValidation.ValidationException(result.Errors);
         }

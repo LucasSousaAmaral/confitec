@@ -1,9 +1,9 @@
-﻿using MediatR;
+﻿using Domain.Agreggates;
+using Domain.Common;
+using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
-using Microsoft.AspNetCore.Http;
-using Domain.Agreggates;
-using Domain.Common;
 using System.Data;
 
 namespace Infrastructure.EntityFramework;

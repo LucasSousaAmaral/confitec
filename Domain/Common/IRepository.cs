@@ -1,5 +1,5 @@
 ﻿namespace Domain.Common;
-public interface IAggregateRoot 
+public interface IAggregateRoot
 {
 }
 public interface IRepository<T> where T : IAggregateRoot
