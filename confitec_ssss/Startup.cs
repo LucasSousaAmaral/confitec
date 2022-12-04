@@ -1,3 +1,4 @@
+using Api.Middlewares;
 using Autofac;
 using confitec_ssss.Configuration;
 using confitec_ssss.Configuration.AutoFac;
@@ -35,6 +36,9 @@ public class Startup
         {
             app.UseDeveloperExceptionPage();
         }
+
+        app.UseErrorHandlingMiddleware();
+
         app.UseHttpsRedirection();
         app.UseRouting();
         app.UseCors("MyPolicy");

@@ -1,9 +1,11 @@
 ﻿using Domain.Agreggates;
 using Domain.Common;
+using Domain.Exceptions;
 using Domain.IRepository;
 using MediatR;
 using Services.Queries.ViewModels;
 using Services.Validations.UserValidations;
+using System.Net;
 
 namespace Services.Commands;
 
@@ -34,7 +36,7 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, UserD
 
         if (!result.IsValid)
         {
-            throw new FluentValidation.ValidationException(result.Errors);
+            throw new UsersValidationException(result.Errors, typeof(UpdateUserCommand).Name, HttpStatusCode.BadRequest);
         }
 
         var user = new User(request.UserName, request.SurName, request.Email, request.BirthDate, request.Scholarity);

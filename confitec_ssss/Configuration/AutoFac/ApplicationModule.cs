@@ -1,4 +1,5 @@
-﻿using Autofac;
+﻿using Api.Middlewares;
+using Autofac;
 using Domain.IRepository;
 using Infrastructure.Repositories;
 
@@ -9,6 +10,8 @@ public class ApplicationModule : Module
     #region Methods
     protected override void Load(ContainerBuilder builder)
     {
+        builder.Register(c => new ErrorHandlingMiddleware(c.Resolve<ILogger<ErrorHandlingMiddleware>>()))
+            .InstancePerLifetimeScope();
         builder.RegisterType<UserRepository>()
                .As<IUserRepository>()
                .InstancePerLifetimeScope();

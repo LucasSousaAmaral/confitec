@@ -1,8 +1,10 @@
 ﻿using Domain.Common;
+using Domain.Exceptions;
 using Domain.IRepository;
 using MediatR;
 using Services.Queries.ViewModels;
 using Services.Validations.UserValidations;
+using System.Net;
 
 namespace Services.Commands;
 
@@ -34,7 +36,7 @@ public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, UserD
 
         if (!result.IsValid)
         {
-            throw new FluentValidation.ValidationException(result.Errors);
+            throw new UsersValidationException(result.Errors, typeof(UpdateUserCommand).Name, HttpStatusCode.BadRequest);
         }
 
         var user = _userRepository.GetUser(request.UserId);

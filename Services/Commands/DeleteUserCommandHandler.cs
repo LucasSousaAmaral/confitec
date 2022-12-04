@@ -1,4 +1,5 @@
-﻿using Domain.IRepository;
+﻿using Domain.Exceptions;
+using Domain.IRepository;
 using MediatR;
 using Services.Validations.UserValidations;
 
@@ -21,7 +22,6 @@ public class DeleteUserCommandHandler : IRequestHandler<DeleteUserCommand, bool>
 
     #endregion Constructors
 
-
     #region Methods
 
     public async Task<bool> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
@@ -31,7 +31,7 @@ public class DeleteUserCommandHandler : IRequestHandler<DeleteUserCommand, bool>
 
         if (!result.IsValid)
         {
-            throw new FluentValidation.ValidationException(result.Errors);
+            throw new UsersValidationException(result.Errors);
         }
 
         var user = _userRepository.GetUser(request.UserId);
